@@ -16,18 +16,32 @@ public class SecondActivity extends AppCompatActivity {
 
         EditText Name = findViewById(R.id.Name);
         EditText Surname = findViewById(R.id.Surname);
-        Button buttonBack = findViewById(R.id.buttonBack);
+        EditText Email = findViewById(R.id.Email);
 
-        buttonBack.setOnClickListener(v -> {
-            String messageName = Name.getText().toString();
-            String messageSurname = Surname.getText().toString();
+        String messageName = getIntent().getStringExtra("messageName");
+        String messageSurname = getIntent().getStringExtra("messageSurname");
+        String messageEmail = getIntent().getStringExtra("messageEmail");
 
-            Intent intent = new Intent();
-            intent.putExtra("messageName", messageName);
-            intent.putExtra("messageSurname", messageSurname);
+        Name.setText(messageName);
+        Surname.setText(messageSurname);
+        Email.setText(messageEmail);
 
-            setResult(RESULT_OK, intent);
+        Button submit = findViewById(R.id.submit);
+        submit.setOnClickListener(v-> {
+            String messagename = Name.getText().toString();
+            String messagesurname = Surname.getText().toString();
+            String messageemail = Email.getText().toString();
+
+            Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+            intent.putExtra("name",messagename);
+            intent.putExtra("surname",messagesurname);
+            intent.putExtra("email",messageemail);
+
+            startActivity(intent);
             finish();
         });
+
+        Button buttonBack = findViewById(R.id.buttonBack);
+        buttonBack.setOnClickListener(v -> finish());
     }
 }

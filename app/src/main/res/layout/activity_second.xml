@@ -9,15 +9,28 @@
         android:id="@+id/Name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Imie"
+        android:hint="Name"
         android:inputType="text" />
 
     <EditText
         android:id="@+id/Surname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nazwisko"
+        android:hint="Surname"
         android:inputType="text" />
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wyslij"
+        android:layout_gravity="center"/>
 
     <Button
         android:id="@+id/buttonBack"
